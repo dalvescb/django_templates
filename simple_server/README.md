@@ -37,9 +37,9 @@ these steps a bit, such as selecting a different project or app name)
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware', COMMENT THIS OUT
     ...
-]
-
+    ]
   ```
+
 ### Routing to the home app
 - Go to *simple_server/simple_server/urls.py* and change the default paths to route to home.urls
   ```python
