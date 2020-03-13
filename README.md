@@ -33,6 +33,8 @@ A collection of Django Project Templates for CS 1XA3 McMaster
   ```
 
 ## Templates Overview
+  - **simple_app** template shows how to setup a simple as possible Django
+    project with a single app that serves Hello World! (constructed in **lab week09**)
   - **simple_server** template shows how to serve html documents with static
-    assets like javascript, and respond to basic http get/posts (used in
+    assets like javascript, and respond to basic http get/posts (constructed in
     **lecture week09**)
