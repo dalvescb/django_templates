@@ -1,5 +1,6 @@
 # simple_server
-A simple project that shows how to serve html. Used for Lecture Week09
+A simple project that shows how to serve html, static assets, and respond to
+GET/POST requests. Used for Lecture Week09
 
 ## Project Setup
 Follow these steps to recreate this template (you probably want to alter some of
@@ -28,14 +29,24 @@ these steps a bit, such as selecting a different project or app name)
     ...
     ]
   ```
-   
+- Comment out the CSRF token middleware (needed to test POST Requests with curl)
+  ```python
+  MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware', COMMENT THIS OUT
+    ...
+]
+
+  ```
 ### Routing to the home app
-- Go to *simple_server/simple_server/urls.py* and change the default paths to route to hello.urls
+- Go to *simple_server/simple_server/urls.py* and change the default paths to route to home.urls
   ```python
   from django.urls import path,include # add include to imports
 
   urlpatterns = [
-      path('e/macid/', include('hello.urls')), # add me
+      path('e/macid/', include('home.urls')), # add me
         # path('admin/', admin.site.urls),
   ]
   ```
