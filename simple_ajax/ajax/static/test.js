@@ -5,6 +5,7 @@ $(document).ready(function() {
         $.post('/e/macid/test_ajax/'
                ,{ 'name' : name}
                ,function(data,status) {
+                   $("#post_out").text(data.new_name);
                    console.log("The reponse was " + data.new_name + "\n with status " + status);
                }
               );

@@ -105,46 +105,47 @@ these steps a bit, such as selecting a different project or app name)
   {% extends "base.djhtml" %}
 
   {% block title %}
-      Test Page
+    Test Page
   {% endblock %}
-  
+
   {% block content1 %}
-     {{ person.firstName }} and {{ person.age }}
+    <h1> {{ person.firstName }} and {{ person.age }} </h1>
   {% endblock %}
-  
+
   {% block content2 %}
-      {% if x < 0 %}
-          <h1> x is Negative </h1>
-      {% elif x == 0 %}
-          <h1> x is Zero </h1>
-      {% else %}
-          <h1> x is Positive </h1>
-      {% endif %}
-  
-      <ul>
-          {% for thing in stuff %}
-              <li> {{ thing }} </li>
-          {% endfor %}
-      </ul>
+    {% if x < 0 %}
+        <h2> x is Negative </h2>
+    {% elif x == 0 %}
+        <h2> x is Zero </h2>
+    {% else %}
+        <h2> x is Positive </h2>
+    {% endif %}
+
+    <ul>
+        {% for thing in stuff %}
+            <li> {{ thing }} </li>
+        {% endfor %}
+    </ul>
   {% endblock %}
-  
+
   {% block content3 %}
-      <form method="post">
-          {% csrf_token %}
-          <label for="fname">Name</label><br>
-          <input type="text" required="" name="fname" maxlength="150" id="form_id" autofocus="">
-          <button type="submit">Submit</button>
-      </form>
+    <h1 id="post_out">No Post Recieved Yet</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="fname">Name</label><br>
+        <input type="text" required="" name="fname" maxlength="150" id="form_id" autofocus="">
+        <button type="submit">Clear</button>
+    </form>
   {% endblock %}
-  
+
   {% block script %}
-      {% load static %}
-      <script>
-       $.ajaxSetup({
-           headers: { "X-CSRFToken": '{{csrf_token}}' }
-       });
-      </script>
-      <script src="{% static 'test.js' %}"></script>
+    {% load static %}
+    <script>
+     $.ajaxSetup({
+         headers: { "X-CSRFToken": '{{csrf_token}}' }
+     });
+    </script>
+    <script src="{% static 'test.js' %}"></script>
   {% endblock %}
   ```
 
@@ -190,6 +191,7 @@ these steps a bit, such as selecting a different project or app name)
         $.post('/e/macid/test_ajax/'
                ,{ 'name' : name}
                ,function(data,status) {
+                   $("#post_out").text(data.new_name);
                    console.log("The reponse was " + data.new_name + "\n with status " + status);
                }
               );
