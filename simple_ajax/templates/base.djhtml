@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+        </script>
+        <title>{% block title %}Default Title{% endblock %}</title>
+    </head>
+
+    <body>
+        <div id="content1">
+            {% block content1 %}{% endblock %}
+        </div>
+        <div id="content2">
+            {% block content2 %}{% endblock %}
+        </div>
+        <div id="content3">
+            {% block content3 %}{% endblock %}
+        </div>
+        {% block script %}{% endblock %}
+    </body>
+</html>

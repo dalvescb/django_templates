@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>README.html</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+</head>
+
+<body>
+
+<h1 id="simple_ajax">simple_ajax</h1>
+<p>This project shows two ways the client can update with the server</p>
+<ul>
+<li>Using Django&#39;s template language to render HTML files (see <a href="https://docs.djangoproject.com/en/3.0/ref/templates/language/">https://docs.djangoproject.com/en/3.0/ref/templates/language/</a>)</li>
+<li>AJAX methods (via JQuery) executed manually in your Javascript code (see <a href="https://www.w3schools.com/jquery/jquery_ajax_intro.asp">https://www.w3schools.com/jquery/jquery_ajax_intro.asp</a>)</li>
+</ul>
+<p>Used for Lab Week10</p>
+<h2 id="project-setup">Project Setup</h2>
+<p>Follow these steps to recreate this template (you probably want to alter some of
+these steps a bit, such as selecting a different project or app name)</p>
+<h3 id="creating-the-project">Creating the project</h3>
+<ul>
+<li><p>Don&#39;t forget to <strong>activate djangoenv</strong></p>
+<pre><code class="language-bash">conda activate djangoenv</code></pre>
+</li>
+<li><p>The project was created with the command</p>
+<pre><code class="language-bash">django-admin startproject simple_ajax</code></pre>
+<h3 id="creating-the-ajax-app">Creating the ajax app</h3>
+</li>
+<li><p>Create and install an app named ajax</p>
+<ul>
+<li>See simple_server <em>Creating the home app</em> for details</li>
+</ul>
+</li>
+<li><p>Route to the home app in <em>simple_ajax/urls.py</em> with the following pattern</p>
+<pre><code class="language-python">from django.urls import path,include
+
+urlspatterns = [
+    path(&#39;e/macid/&#39;,include(&#39;ajax.urls&#39;)),
+]</code></pre>
+<h3 id="create-templates-and-static-directories">Create templates and static directories</h3>
+</li>
+<li><p>Create two new directories at the project root (i.e in the same directory as <em>manage.py</em>)</p>
+<ul>
+<li><em>simple_ajax/templates</em> and <em>simple_ajax/static</em></li>
+</ul>
+</li>
+<li><p>Create two new directories inside our app directory</p>
+<ul>
+<li><em>simple_ajax/ajax/templates</em> and <em>simple_ajax/ajax/templates</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="create-django-templates-and-an-accompanying-css-file">Create Django Templates (and an accompanying CSS file)</h3>
+<ul>
+<li><p>Create a base template in <em>simple_ajax/templates/base.djhtml</em></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &#39;style.css&#39; %}&quot;&gt;
+      &lt;script
+          src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js&quot;&gt;
+      &lt;/script&gt;
+      &lt;title&gt;{% block title %}Default Title{% endblock %}&lt;title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+      &lt;div id=&quot;content1&quot;&gt;
+          {% block content1 %}{% endblock %}
+      &lt;/div&gt;
+      &lt;div id=&quot;content2&quot;&gt;
+          {% block content2 %}{% endblock %}
+      &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</li>
+<li><p>Create an accompanying CSS file in <em>simple_ajax/static/styles.css</em></p>
+<pre><code class="language-css">body {
+  background-color: powderblue;
+}
+#content1 {
+  color: red;
+}
+#content2 {
+  color: green;
+}</code></pre>
+</li>
+<li><p>Create a child template in <em>smiple_ajax/ajax/templates/test.djhtml</em></p>
+<pre><code class="language-html">{% extends &quot;base.html&quot; %}
+
+{% block title %}Test Page{% endblock %}
+
+{% block content1 %}
+Testing Content 1
+{% endblock %}
+
+{% block content2 %}
+Testing Content 2
+{% endblock %}</code></pre>
+<h1 id="todo-finish-writing-project-details">TODO finish writing project details</h1>
+</li>
+</ul>
+<h2 id="usage-todo-update-from-simple_server">Usage TODO update from simple_server</h2>
+<p>The project can be run as is locally but will require some alteration to run on mac1xa3.ca</p>
+<h3 id="running-a-local-server-for-debugging-purposes">Running A Local Server (For Debugging Purposes)</h3>
+<ul>
+<li>Make sure the <strong>conda environment is activated</strong> (see <strong>README.md</strong> in parent
+directory)<pre><code class="language-bash">conda activate djangoenv</code></pre>
+</li>
+<li>Run the server by <em>cd</em>-ing into <em>simple_server</em> (i.e the directory that
+contains <em>manage.py</em>) and running<pre><code class="language-bash">python manage.py runserver localhost:8000</code></pre>
+</li>
+<li>With the server running, you can have django serve you <strong>home.html</strong> (and its
+static assets) by opening the url <em>localhost:8000/e/macid/</em> in your browser</li>
+<li>With the server running, you can send a get request by opening the url
+<em>localhost:8000/e/macid/get_test/?name=Curtis&amp;age=43</em> in your browser (and you
+can change around the parameters name and age)</li>
+<li>You can&#39;t send a POST request directly through the browser because there is
+no way of specifying parameters. Short of writing some javascript, you can
+test it by using the <em>curl</em> program like so<pre><code class="language-bash">curl -X POST &quot;localhost:8000/e/macid/post_test/&quot; -d &quot;name=Curtis&amp;age=43&quot; -m 30 -v</code></pre>
+</li>
+</ul>
+<h3 id="running-on-mac1xa3ca">Running on mac1xa3.ca</h3>
+<ul>
+<li>Make sure the <strong>conda environment is activated</strong> (see <strong>README.md</strong> in parent
+directory)<pre><code class="language-bash">conda activate djangoenv</code></pre>
+</li>
+<li>To run on mac1xa3.ca you <em>MUST REPLACE URLS WITH macid TO YOUR ACTUAL MACID</em></li>
+<li>To be able to serve static files, you must edit
+<em>simple_server/simple_server/settings.py</em> and add/change<pre><code class="language-python"># STATIC_URL = &#39;/static/&#39; replace me with
+STATIC_URL = &#39;/u/macid/&#39;  # where macid is your macid
+STATIC_ROOT = &#39;/home/macid/public_html/&#39; # add me
+      # where macid is your macid</code></pre>
+</li>
+<li>Run the following code to copy all of your static assets to <em>STATIC_ROOT</em>
+(make sure you&#39;ve <em>cd</em>-ed into the <em>simple_server</em> directory, i.e the one with
+<em>manage.py</em>)<pre><code class="language-bash">python manage.py collectstatic</code></pre>
+</li>
+<li>Lookup your port number from mac1xa3.ca (the webpage) under the Mac1XA3 User
+Ports tab, and run<pre><code class="language-bash">python manage.py runserver localhost:portnum
+      # where portnum is your port number</code></pre>
+</li>
+<li>You can now run all the tests mentioned above but replace <em>localhost:8000</em>
+with <em>mac1xa3.ca</em> and <em>macid</em> with your actual macid</li>
+</ul>
+
+
+</body>
+</html>
