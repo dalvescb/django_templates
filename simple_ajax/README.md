@@ -102,50 +102,50 @@ these steps a bit, such as selecting a different project or app name)
   ```
 - Create a child template in *simple_ajax/ajax/templates/test.djhtml*
   ```html
-{% extends "base.djhtml" %}
+  {% extends "base.djhtml" %}
 
-{% block title %}
-    Test Page
-{% endblock %}
-
-{% block content1 %}
-   {{ person.firstName }} and {{ person.age }}
-{% endblock %}
-
-{% block content2 %}
-    {% if x < 0 %}
-        <h1> x is Negative </h1>
-    {% elif x == 0 %}
-        <h1> x is Zero </h1>
-    {% else %}
-        <h1> x is Positive </h1>
-    {% endif %}
-
-    <ul>
-        {% for thing in stuff %}
-            <li> {{ thing }} </li>
-        {% endfor %}
-    </ul>
-{% endblock %}
-
-{% block content3 %}
-    <form method="post">
-        {% csrf_token %}
-        <label for="fname">Name</label><br>
-        <input type="text" required="" name="fname" maxlength="150" id="form_id" autofocus="">
-        <button type="submit">Submit</button>
-    </form>
-{% endblock %}
-
-{% block script %}
-    {% load static %}
-    <script>
-     $.ajaxSetup({
-         headers: { "X-CSRFToken": '{{csrf_token}}' }
-     });
-    </script>
-    <script src="{% static 'test.js' %}"></script>
-{% endblock %}
+  {% block title %}
+      Test Page
+  {% endblock %}
+  
+  {% block content1 %}
+     {{ person.firstName }} and {{ person.age }}
+  {% endblock %}
+  
+  {% block content2 %}
+      {% if x < 0 %}
+          <h1> x is Negative </h1>
+      {% elif x == 0 %}
+          <h1> x is Zero </h1>
+      {% else %}
+          <h1> x is Positive </h1>
+      {% endif %}
+  
+      <ul>
+          {% for thing in stuff %}
+              <li> {{ thing }} </li>
+          {% endfor %}
+      </ul>
+  {% endblock %}
+  
+  {% block content3 %}
+      <form method="post">
+          {% csrf_token %}
+          <label for="fname">Name</label><br>
+          <input type="text" required="" name="fname" maxlength="150" id="form_id" autofocus="">
+          <button type="submit">Submit</button>
+      </form>
+  {% endblock %}
+  
+  {% block script %}
+      {% load static %}
+      <script>
+       $.ajaxSetup({
+           headers: { "X-CSRFToken": '{{csrf_token}}' }
+       });
+      </script>
+      <script src="{% static 'test.js' %}"></script>
+  {% endblock %}
   ```
 
 ### Rendering Django Templates
