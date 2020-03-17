@@ -25,12 +25,12 @@
 {% endblock %}
 
 {% block content3 %}
-    <form method="post">
+    <form action="/" id="form_id">
         {% csrf_token %}
-        <label for="fname">Name</label><br>
-        <input type="text" required="" name="fname" maxlength="150" id="form_id" autofocus="">
+        <input type="text" name="fname" placeHolder="Name..">
         <button type="submit">Submit</button>
     </form>
+    <h1 id="h1_id">No AJAX POST Response Yet</h1>
 {% endblock %}
 
 {% block script %}

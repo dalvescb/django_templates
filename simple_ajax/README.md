@@ -129,12 +129,12 @@ these steps a bit, such as selecting a different project or app name)
   {% endblock %}
   
   {% block content3 %}
-      <form method="post">
-          {% csrf_token %}
-          <label for="fname">Name</label><br>
-          <input type="text" required="" name="fname" maxlength="150" id="form_id" autofocus="">
-          <button type="submit">Submit</button>
-      </form>
+    <form action="/" id="form_id">
+        {% csrf_token %}
+        <input type="text" name="fname" placeHolder="Name..">
+        <button type="submit">Submit</button>
+    </form>
+    <h1 id="h1_id">No AJAX POST Response Yet</h1>
   {% endblock %}
   
   {% block script %}
@@ -184,16 +184,30 @@ these steps a bit, such as selecting a different project or app name)
   *simple_ajax/ajax/static/test.js*
   ```javascript
   $(document).ready(function() {
-    $("#form_id").change(function(){
-        let name = $(this).val();
+    // respond to form submission
+    function onSubmit(event){
+        // stop form from submitting normally
+        event.preventDefault();
 
-        $.post('/e/macid/test_ajax/'
-               ,{ 'name' : name}
-               ,function(data,status) {
-                   console.log("The reponse was " + data.new_name + "\n with status " + status);
-               }
+        let form = $(this);
+        let name = form.find("input[name='fname']").val();
+        let json_data = { 'name' : name };
+        let url_path = '/e/macid/test_ajax/';
+
+        $.post(url_path,
+               json_data,
+               handleResponse
               );
-    });
+    }
+
+    // handle Json Response from form POST
+    function handleResponse(data,status) {
+        $("#h1_id").text("Name Evaluation Recieved: " + data.new_name);
+        // console.log("The reponse was " + data.new_name + "\n with status " + status);
+    }
+
+    // when form submit buttons is clicked, call onSubmit
+    $("#form_id").submit(onSubmit);
   });
   ```
 
