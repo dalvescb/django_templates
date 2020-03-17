@@ -105,29 +105,29 @@ these steps a bit, such as selecting a different project or app name)
   {% extends "base.djhtml" %}
 
   {% block title %}
-      Test Page
+    Test Page
   {% endblock %}
-  
+
   {% block content1 %}
-     {{ person.firstName }} and {{ person.age }}
+    <h1> {{ person.firstName }} and {{ person.age }} </h1>
   {% endblock %}
-  
+
   {% block content2 %}
-      {% if x < 0 %}
-          <h1> x is Negative </h1>
-      {% elif x == 0 %}
-          <h1> x is Zero </h1>
-      {% else %}
-          <h1> x is Positive </h1>
-      {% endif %}
-  
-      <ul>
-          {% for thing in stuff %}
-              <li> {{ thing }} </li>
-          {% endfor %}
-      </ul>
+    {% if x < 0 %}
+        <h2> x is Negative </h2>
+    {% elif x == 0 %}
+        <h2> x is Zero </h2>
+    {% else %}
+        <h2> x is Positive </h2>
+    {% endif %}
+
+    <ul>
+        {% for thing in stuff %}
+            <li> {{ thing }} </li>
+        {% endfor %}
+    </ul>
   {% endblock %}
-  
+
   {% block content3 %}
     <form action="/" id="form_id">
         {% csrf_token %}
@@ -136,15 +136,15 @@ these steps a bit, such as selecting a different project or app name)
     </form>
     <h1 id="h1_id">No AJAX POST Response Yet</h1>
   {% endblock %}
-  
+
   {% block script %}
-      {% load static %}
-      <script>
-       $.ajaxSetup({
-           headers: { "X-CSRFToken": '{{csrf_token}}' }
-       });
-      </script>
-      <script src="{% static 'test.js' %}"></script>
+    {% load static %}
+    <script>
+     $.ajaxSetup({
+         headers: { "X-CSRFToken": '{{csrf_token}}' }
+     });
+    </script>
+    <script src="{% static 'test.js' %}"></script>
   {% endblock %}
   ```
 
