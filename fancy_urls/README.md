@@ -37,7 +37,7 @@ these steps a bit, such as selecting a different project or app name)
   from django.urls import path,include # add include to imports
 
   urlpatterns = [
-      path('e/macid/', include('done.urls')), # add me
+      path('e/macid/done/', include('done.urls')), # add me
   ]
   ```
 - Then create a file *fancy_urls/done/urls.py*
@@ -146,14 +146,14 @@ The project can be run as is locally but will require some alteration to run on 
   python manage.py runserver localhost:8000
   ```
 - Test out the the url value captures  by going to
-  **locahost:8000/e/macid/names/<anyname>/<anyage>/** where anyname and anyage
+  **locahost:8000/e/macid/done/names/<anyname>/<anyage>/** where anyname and anyage
   are a sample name and age
 - Test out the regex url value captures by going to
-  **locahost:8000/e/macid/names2/<anyname>/<anyage>/** where anyname and anyage
+  **locahost:8000/e/macid/done/names2/<anyname>/<anyage>/** where anyname and anyage
   are a sample name and age
-- Go to **localhost:8000/e/macid/index/** to test out the template url functionality
-- Go to **localhost:8000/e/macid/reverse/** to test out Http Redirection
-- Go to **localhost:8000/e/macid/unfound/<x>** where x is 0 to test out Http Not Found
+- Go to **localhost:8000/e/macid/done/index/** to test out the template url functionality
+- Go to **localhost:8000/e/macid/done/reverse/** to test out Http Redirection
+- Go to **localhost:8000/e/macid/done/unfound/<x>** where x is 0 to test out Http Not Found
 
 ### Running on mac1xa3.ca
 - Make sure the **conda environment is activated** (see **README.md** in parent

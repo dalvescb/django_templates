@@ -16,5 +16,6 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path('e/macid/', include('done.urls')),
+    path('e/macid/start/', include('start.urls')),
+    path('e/macid/done/', include('done.urls')),
 ]
