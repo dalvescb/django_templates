@@ -245,8 +245,9 @@ The project can be run as is locally but will require some alteration to run on 
   STATIC_URL = '/u/macid/'  # where macid is your macid
   STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    '/home/macid/public_html/', # uncomment me and change macid
     ]
+  STATIC_ROOT = '/home/macid/public_html/'
+  # replace macid with your macid
   ```
 - Run the following code to copy all of your static assets to *STATIC_ROOT*
   (make sure you've *cd*-ed into the *simple_server* directory, i.e the one with
