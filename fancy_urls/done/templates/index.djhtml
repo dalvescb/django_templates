@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h1> Simple Webpage With A Link </h1>
+        <a href="{% url 'done:hello' %}">Go To Hello View</a>
+        <a href="{% url 'done:goodbye' 100 %}">Go To Goodbye View</a>
+        <a href="{% url 'done:reverse' %}">Go To Goodbye View 1000</a>
+    </body>
+</html>
