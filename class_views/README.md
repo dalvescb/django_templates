@@ -37,7 +37,7 @@ these steps a bit, such as selecting a different project or app name)
   from django.urls import path,include # add include to imports
 
   urlpatterns = [
-      path('e/macid/', include('done.urls')), # add me
+      path('e/macid/done/', include('done.urls')), # add me
   ]
   ```
 - Then create a file *class_views/done/urls.py*
@@ -119,16 +119,16 @@ The project can be run as is locally but will require some alteration to run on 
   python manage.py runserver localhost:8000
   ```
 - Test out the the HelloView class based view by going to 
-  **locahost:8000/e/macid/hello/<anyname>/** where anyname 
+  **locahost:8000/e/macid/done/hello/<anyname>/** where anyname 
   is any string of word character and/or hyphens
 - Test out the the IndexPageView class based view by going to 
-  **locahost:8000/e/macid/index/<anyname>/** where anyname 
+  **locahost:8000/e/macid/done/index/<anyname>/** where anyname 
   is any string of word character and/or hyphens
 - Test out the the GoToIndexView class based view by going to 
-  **locahost:8000/e/macid/redirect/<anyname>/** where anyname 
+  **locahost:8000/e/macid/done/redirect/<anyname>/** where anyname 
   is any string of word character and/or hyphens
 - Test out the the built-in RedirectView class based view by going to 
-  **locahost:8000/e/macid/go-to-google/** 
+  **locahost:8000/e/macid/done/go-to-google/** 
 
 ### Running on mac1xa3.ca
 - Make sure the **conda environment is activated** (see **README.md** in parent

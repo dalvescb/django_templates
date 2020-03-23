@@ -3,6 +3,8 @@ from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.base import RedirectView
 
+# route /e/macid/done/hello/<slug:name>/
+# name done:hello-view
 class HelloView(View):
     # limits the view to only http get requests
     http_method_names = ['get']
@@ -11,6 +13,8 @@ class HelloView(View):
     def get(self,request,*args,**kwargs):
         return HttpResponse('Hello ' + kwargs['name'])
 
+# route /e/macid/done/index/<slug:name>/
+# name done:index-view
 class IndexPageView(TemplateView):
 
     template_name = 'index.djhtml'
@@ -21,6 +25,8 @@ class IndexPageView(TemplateView):
 
         return context
 
+# route /e/macid/done/redirect/<slug:name>/
+# name done:redirect-view
 class GoToIndexView(RedirectView):
     permanent = False
     query_string = True
