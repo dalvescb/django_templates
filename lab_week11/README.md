@@ -46,8 +46,7 @@ this to complete the lab activity, follow the steps in
   from django.urls import path,include # add include to imports
 
   urlpatterns = [
-      path('e/macid/', include('start.urls')), # add me
-        # path('admin/', admin.site.urls),
+      path('e/macid/start/', include('start.urls')), 
   ]
   ```
 - Then create a file *lab_week11/start/urls.py*
@@ -62,7 +61,7 @@ this to complete the lab activity, follow the steps in
   ```
 
 ### Serving html templates
-- Now we need to create the function *home_view* in *lab_week11/home/views.py*
+- Now we need to create the function *home_view* in *lab_week11/start/views.py*
   ```python
   from django.shortcuts import render
 
@@ -72,7 +71,7 @@ this to complete the lab activity, follow the steps in
 - The above function will serve a file *lab11.djhtml* 
 - The function *render* will automatically look for html files in *templates* directories
 - Create the directory *lab_week11/start/templates/* 
-- Add a file *lab_week11/home/templates/lab11.djhtml* with the following content
+- Add a file *lab_week11/start/templates/lab11.djhtml* with the following content
   ```html
   <!DOCTYPE html>
 
@@ -115,9 +114,8 @@ The project can be run as is locally but will require some alteration to run on 
 - To be able to serve static files, you must edit
   *lab_week11/lab_week11/settings.py* and add/change
   ```python
-  # STATIC_URL = '/static/' replace me with
   STATIC_URL = '/u/macid/static/'  # where macid is your macid
-  STATIC_ROOT = '/home/macid/public_html/static/' # add me
+  STATIC_ROOT = '/home/macid/public_html/static/'
         # where macid is your macid
   ```
 - *NOTE* make sure to create the directory */home/macid/public_html/static/* on
