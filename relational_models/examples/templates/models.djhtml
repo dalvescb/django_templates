@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <body>
+
+        <h1>This Project Contains Examples of Models With Different Relations</h1>
+
+        <h2>Programming Languages in Database</h2>
+        <ul>
+        {% for language in languages %}
+            <li> {{ language.name }} </li>
+        {% endfor %}
+        </ul>
+
+        <h2>Companies In Database </h2>
+        {% for company,employees in companies.items %}
+            <h3> {{  company }} </h3>
+            <ul>
+                {% for employee in employees %}
+                    <li> {{ employee.name }} </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+
+        <h2>Classes In Database </h2>
+        {% for class,students in classes.items %}
+            <h3> {{  class }} </h3>
+            <ul>
+                {% for student in students %}
+                    <li> {{ student.name }} </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+
+        <h2>Friends of Joe and Jill </h2>
+        <ul>
+        {% for friend in friends %}
+            <li> {{ friend.name }} </li>
+        {% endfor %}
+        </ul>
+
+        <h2> Countries With Presidents </h2>
+        <ul>
+            {% for president, country in presidents %}
+                <li> {{ country }} is ruled by {{ president }} </li>
+            {% endfor %}
+        </ul>
+    </body>
+
+</html>
