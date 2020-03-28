@@ -54,3 +54,6 @@ A collection of Django Project Templates for CS 1XA3 McMaster
   - **simple_models** template contains an example of how to create and run
     migrations on simple django models (i.e constructing a database). Note: it
     only goes over the preliminaries of how to use models (construct in **lab week 11**)
+  - **relational_models** contains examples of models with a variety of
+    different relations, and how to query and render them into a Django
+    template. Use in **lecture week 11**

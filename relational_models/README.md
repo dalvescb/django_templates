@@ -1,7 +1,6 @@
 # relational_models
-This project contains an example of how to create and run migrations on simple django
-models. Note: it only goes over the preliminaries of how to use models
-
+This project contains examples of models with a variety of different relations, and how to
+query and render them into a Django template
 ## Project Setup
 Follow these steps to recreate this template (you probably want to alter some of
 these steps a bit, such as selecting a different project or app name)
