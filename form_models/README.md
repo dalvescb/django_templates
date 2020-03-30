@@ -1,6 +1,6 @@
 # form_models
-This project contains done of models with a variety of different relations, and how to
-query and render them into a Django template
+This project contains examples of how to automatically generate Html Forms for
+Djano Templates from Django Models
 ## Project Setup
 Follow these steps to recreate this template (you probably want to alter some of
 these steps a bit, such as selecting a different project or app name)

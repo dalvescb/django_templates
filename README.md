@@ -33,27 +33,31 @@ A collection of Django Project Templates for CS 1XA3 McMaster
   ```
 
 ## Templates Overview
-  - **simple_app** template shows how to setup a simple as possible Django
+  - [ simple_app ](simple_app) template shows how to setup a simple as possible Django
     project with a single app that serves Hello World! (constructed in **lab week09**)
-  - **simple_server** template shows how to serve html documents with static
+  - [ simple_server ](simple_server) template shows how to serve html documents with static
     assets like javascript, and respond to basic http get/posts (constructed in
     **lecture week09**)
-  - **simple_ajax** template shows two ways the client can update with the server
+  - [ simple_ajax ](simple_ajax) template shows two ways the client can update with the server
      - Using Django's template language to render HTML files (see https://docs.djangoproject.com/en/3.0/ref/templates/language/)
      - AJAX methods (via JQuery) executed manually in your Javascript code (see
      https://www.w3schools.com/jquery/jquery_ajax_intro.asp) 
      - constructed in **lab week10**
-  - **fancy_urls** template contains examples of more sophisticated url
+  - [ fancy_urls ](fancy_urls) template contains examples of more sophisticated url
     manipulation, including capturing values from URLS, parsing regex expression
     based URL's, referencing URL's from templates, and redirecting to URL's from
     the server side (constructed in **lecture week 10**)
-  - **class_views** template contains examples of more sophisticated url
+  - [ class_views ](class_views) template contains examples of more sophisticated url
     manipulation, including capturing values from URLS, parsing regex expression
     based URL's, referencing URL's from templates, and redirecting to URL's from
     the server side (constructed in **lecture week 10**)
-  - **simple_models** template contains an example of how to create and run
+  - [ simple_models ](simple_models) template contains an example of how to create and run
     migrations on simple django models (i.e constructing a database). Note: it
     only goes over the preliminaries of how to use models (construct in **lab week 11**)
-  - **relational_models** contains examples of models with a variety of
+  - [ relational_models ](relational_models) contains examples of models with a variety of
     different relations, and how to query and render them into a Django
-    template. Use in **lecture week 11**
+    template. Used in **lecture week 11**
+  - [ form_models ](form_models) contains examples of how to automatically
+    generate Html Forms for Djano Templates from Django Models. Used in **lab week 12**
+  - [ user_models ](user_models) contains examples of how to use the built in
+    User Models, including peforming authentication **lab week 12**
