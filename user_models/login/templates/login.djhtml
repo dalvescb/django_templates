@@ -1,0 +1,18 @@
+{% extends 'base.djhtml' %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block header %}
+    <h1>Login Page</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post" id="userauthform" action="{% url 'login:auth_view' %}">
+        {% csrf_token %}
+        {{ auth_form }}
+        <input type="submit" value="Submit" />
+    </form>
+    {% if failed %}
+        <p style="color:red">Incorrect username or password</p>
+    {% endif %}
+{% endblock %}

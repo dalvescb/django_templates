@@ -1,0 +1,15 @@
+{% extends 'base.djhtml' %}
+
+{% block title %}Private Page{% endblock %}
+
+{% block header %}
+    <h1>Private Page</h1>
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+    {% else %}
+        <p>Welcome, new user. Please log in.</p>
+    {% endif %}
+{% endblock %}
