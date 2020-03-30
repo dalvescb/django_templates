@@ -1,0 +1,12 @@
+{% extends 'base.djhtml' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block header %}
+    <h1>Home Page</h1>
+{% endblock %}
+
+{% block content %}
+    <h1>PC Part Form</h1>
+    TODO Add PC Part Form here
+{% endblock %}

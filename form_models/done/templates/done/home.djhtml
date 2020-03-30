@@ -1,0 +1,16 @@
+{% extends 'base.djhtml' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block header %}
+    <h1>Home Page</h1>
+{% endblock %}
+
+{% block content %}
+    <h1>PC Part Form</h1>
+    <form method="post" id="pcpartform" action="{% url 'done:pcpart_post' %}">
+        {% csrf_token %}
+        {{ pcpart_form }}
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

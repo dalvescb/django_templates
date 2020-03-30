@@ -1,0 +1,18 @@
+{% extends 'base.djhtml' %}
+
+{% block title %}PCParts Page{% endblock %}
+
+{% block header %}
+    <h1>PC Parts List: </h1>
+    {% with pcpart=pcparts|first %}
+        <h2> {{ pcpart.part_type }} </h2>
+    {% endwith %}
+{% endblock %}
+
+{% block content %}
+    <ul>
+    {% for pcpart in pcparts %}
+        <li> {{ pcpart.name }}  </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
