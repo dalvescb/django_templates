@@ -1,0 +1,48 @@
+{% extends 'base.djhtml' %}
+
+{% block title %}Lab 12 Page{% endblock %}
+
+{% block header %}
+    <h1> Player: {{ player_name }} </h1>
+{% endblock %}
+
+{% block content %}
+
+    <h2> Favourite Console: {{ fav_console }} </h2>
+    <p> Plays {{ num_games_fav }} games on this console </p>
+
+    <h2> Companies Supported </h2>
+    <ul>
+    {% for company in companies %}
+        <li> {{ company }} </li>
+    {% endfor %}
+    </ul>
+
+    <h2> Games {{ player_name }} and Jimmy both play </h2>
+    <ul>
+    {% for game in pj_games %}
+        <li> {{ game }} </li>
+    {% endfor %}
+    </ul>
+
+    <h2> Consoles that are newer than generation {{ fav_gen }} </h2>
+    <ul>
+        {% for console in newer_consoles %}
+            <li> {{ console }} </li>
+        {% endfor %}
+    </ul>
+
+    <h2> Games {{ player_name }} plays that are available on all platforms </h2>
+    <ul>
+        {% for game in all_platforms %}
+            <li> {{ game }} </li>
+        {% endfor %}
+    </ul>
+
+    <h2> Other players that have games in common with {{ player_name }} </h2>
+    <ul>
+        {% for player in common_players %}
+            <li> {{ player }} </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
