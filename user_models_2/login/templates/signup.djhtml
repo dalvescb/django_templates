@@ -1,0 +1,18 @@
+{% extends 'base.djhtml' %}
+
+{% block title %}Signup Page{% endblock %}
+
+{% block header %}
+    <h1>Signup Page</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post" id="create_form" action="{% url 'login:create_view' %}">
+        {% csrf_token %}
+        {{ create_form }}
+        <input type="submit" value="Submit" />
+    </form>
+    {% if create_failed %}
+        <p style="color:red"> Invalid username or password </p>
+    {% endif %}
+{% endblock %}

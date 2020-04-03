@@ -1,0 +1,15 @@
+{% extends 'base.djhtml' %}
+
+{% block title %}Change Page {{ user.username }} {% endblock %}
+
+{% block header %}
+    <h1>Change Page</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="post" id="change_form" action="{% url 'login:change_view' %}">
+        {% csrf_token %}
+        {{ change_form }}
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}
