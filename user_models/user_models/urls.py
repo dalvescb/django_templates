@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('e/macid/login/', include('login.urls')),
+    path('e/macid/', include('login.urls')),
     path('e/macid/admin/', admin.site.urls),
 ]

@@ -53,11 +53,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-  path('e/macid/login/', include('login.urls')),
+  path('e/macid/', include('login.urls')),
   path('e/macid/admin/', admin.site.urls),
 ]
 ```
-- Then create a file [done/urls.py](done/urls.py) 
+- Then create a file [login/urls.py](login/urls.py) 
   ```python
   from django.urls import path
 
@@ -69,14 +69,14 @@ urlpatterns = [
       path('session/', views.session_view, name="session_view"),
       path('auth/',views.auth_view,name='auth_view'),
       path('private/',views.private_view,name='private_view'),
-      path('', views.login_template_view, name="login_view"),
+      path('login/', views.login_template_view, name="login_view"),
   ]
   ```
 - *NOTE* the inclusion of **app_name** allows to distinguish the url names
   between apps in templates
   (should be referenced with {% url app_name:urlname %})
 ### Handling URLs and Forms in views.py
-- Now define a view to render a template and handle our forms in [done/views.py](done/views.py)
+- Now define a view to render a template and handle our forms in [login/views.py](login/views.py)
   ```python
   from django.http import HttpResponse,HttpResponseNotFound
   from django.shortcuts import render,redirect
